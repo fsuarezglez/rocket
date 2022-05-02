@@ -22,11 +22,26 @@ std::string rocket::getNextRow()
     if (currentLevel == 0)
     {
         // Inset spike
-
+        for (int i=0; (i< 2*levels-1); i++)
+        {
+            if (i == levels-1)
+                str.push_back(SPIKE);
+            else
+                str.push_back(' ');
+        }
     }
     else if (currentLevel == levels +1)
     {
         // Insert the tail
+        for (int i=0; (i< 2*levels-1); i++)
+        {
+            if ((i == levels-1) ||
+                (i == 0) ||
+                (i == 2*levels -2))
+                str.push_back(ROCKETCHAR);
+            else
+                str.push_back(' ');
+        }
     }
     else
     {
@@ -52,14 +67,11 @@ std::string rocket::getNextRow()
 
     }
 
-
-
-
     currentLevel++;
     return str;
 }
 
 bool rocket::isRocketTail()
 {
-    return (currentLevel == (levels+1) ? true : false);
+    return (currentLevel == (levels+2) ? true : false);
 }
