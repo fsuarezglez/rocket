@@ -74,3 +74,12 @@ you can use the template of this repository as starting point.
 
 5. Please document all assumptions you made.
 
+//*******************************************************************************************************************************
+
+1. Assumtpions
+
+To solve the problem I am thinking about creating a class called rocket or something like that. I just don't want to write the code in main funcion.
+
+Evaluating the progression of the number of X in the rocket we can assume that every new row contains n + (n-1) symbols where n is the number of rows starting in 1
+
+To print the rocket in reverse order, we have to do the loop also in the inverse order, starting in the last row and decrementing the count.
