@@ -6,17 +6,16 @@
 class rocket
 {
 public:
-    rocket(const int &numLevels);
+    rocket(const int &numLevels, const bool &inverted=false);
 
-    void init(const int &numLevels);
     std::string getNextRow();
     bool isRocketTail();
-
-
 
 private:
     int levels;
     int currentLevel;
+    bool rocketInverted;
+    int rowIncrement;
 
 private:
     // Private consts

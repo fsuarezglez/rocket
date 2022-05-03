@@ -1,17 +1,18 @@
 #include "rocket.h"
 
-rocket::rocket(const int &numLevels):
+rocket::rocket(const int &numLevels, const bool &inverted):
     levels(numLevels),
-    currentLevel(0)
+    currentLevel(0),
+    rocketInverted(inverted),
+    rowIncrement(1)
 {
-
+    if (inverted)
+    {
+        currentLevel = levels+1;
+        rowIncrement = -1;
+    }
 }
 
-void rocket::init(const int &numLevels)
-{
-    levels = numLevels;
-    currentLevel = 0;
-}
 
 std::string rocket::getNextRow()
 {
@@ -67,11 +68,14 @@ std::string rocket::getNextRow()
 
     }
 
-    currentLevel++;
+    currentLevel += rowIncrement;
     return str;
 }
 
 bool rocket::isRocketTail()
 {
-    return (currentLevel == (levels+2) ? true : false);
+    if (!rocketInverted)
+        return (currentLevel == (levels+2) ? true : false);
+    else
+        return (currentLevel == -1 ? true: false);
 }

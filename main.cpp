@@ -28,7 +28,18 @@ int main(int argc, char* argv[])
 
     int levels = std::stoi(arg2);
 
-    rocket theRocket(levels);
+    bool inverted=false;
+    if (argc == 4)
+    {
+        std::string arg3 = std::string(argv[3]);
+        if (arg3 == "-i")
+        {
+            inverted = true;
+        }
+    }
+
+
+    rocket theRocket(levels, inverted);
 
     while (!theRocket.isRocketTail())
     {
